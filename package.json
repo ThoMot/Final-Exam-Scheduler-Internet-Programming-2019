@@ -1,0 +1,32 @@
+{
+  "name": "cst336final-exam-scheduler-2019",
+  "version": "1.0.0",
+  "description": "Final Exam for cst 336 2019",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThoMot/cst336Final-Exam-Scheduler-2019.git"
+  },
+  "keywords": [
+    "exam",
+    "cst336",
+    "InternetProgramming"
+  ],
+  "author": "ThoMot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThoMot/cst336Final-Exam-Scheduler-2019/issues"
+  },
+  "homepage": "https://github.com/ThoMot/cst336Final-Exam-Scheduler-2019#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "hbs": "^4.0.6",
+    "mysql2": "^2.0.2",
+    "nodemon": "^2.0.2"
+  }
+}
