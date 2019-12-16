@@ -1,8 +1,21 @@
 $(document).ready(() => {
-    //$("#createFailed").hide();
-    //$("#deleteFailed").hide();
+    $("#addFailed").hide();
+    $("#deleteFailed").hide();
     $("#detailsFailed").hide();
-    retreiveAppointments(1);
+    retreiveAppointments();
+
+    $("#addAppointment").on("click", function () {
+        const newApp = {
+            start_time: $("#newDate").val() + " " + $("#newStart").val(),
+            end_time: $("#newDate").val() + " " + $("#newEnd").val(),
+        };
+        createAppointment(newApp);
+    });
+
+    //listener for deleting Appointment
+    $("#deleteAuthor").on("click", function() {
+        deleteAuthor($("#deletedAuthorId").html());
+    });
 
     // Adding eventlisteners for author in quotes
     $("#tableBod").on("click", "a", function() {
@@ -10,10 +23,55 @@ $(document).ready(() => {
         if ($(this)[0].innerHTML === "Details") {
             getAppointmentInfo(appointment);
         } else {
+            getAppointmentInfoDelete(appointment);
             $("#deletedAuthorId").text(appointment);
         }
     });
 });
+
+function createAppointment(newApp){
+    $.ajax({
+        url: "/dashboard/add",
+        method: "post",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify(newApp),
+        success: function(result) {
+            if (result.status === "success") {
+                $("#createSuccess").html(result.message);
+                retreiveAppointments();
+            } else {
+                $("#addFailed").show();
+            }
+        },
+        error: function(xhr, status) {
+            $("#createFailed").show();
+            console.log("error calling to POST router", status);
+        },
+        complete: function() {}
+    });
+}
+
+function deleteAuthor(appointmentId) {
+    $.ajax({
+        url: "/dashboard/delete",
+        method: "DELETE",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify({
+            appointmentId: appointmentId
+        }),
+        success: function(result) {
+            $("#deleteSuccess").html(result.message);
+            retreiveAppointments();
+        },
+        error: function(xhr, status) {
+            $("#deleteFailed").show();
+            console.log("error calling to POST router", status);
+        },
+        complete: function() {}
+    });
+}
 
 //Gets author info for populating the update modal
 function getAppointmentInfo(appID) {
@@ -24,6 +82,23 @@ function getAppointmentInfo(appID) {
         dataType: "json",
         success: function(result) {
             populateDetailsModal(result.appointment);
+        },
+        error: function(xhr, status) {
+            $("#detailsFailed").show();
+            console.log("error calling to POST router", status);
+        },
+        complete: function() {}
+    });
+}
+
+function getAppointmentInfoDelete(appID) {
+    $.ajax({
+        url: `/dashboard/appointment/${appID}`,
+        method: "get",
+        contentType: "application/json",
+        dataType: "json",
+        success: function(result) {
+            populateDeleteModal(result.appointment);
         },
         error: function(xhr, status) {
             $("#detailsFailed").show();
@@ -49,13 +124,24 @@ function populateDetailsModal(appointment) {
     $("#starttime").val(start_time);
     $("#endtime").val(end_time);
     $("#booked").val(booked_by);
-    $("#duration").val(duration);
+    $("#duration").val(duration + " Minutes");
+}
+
+function populateDeleteModal(appointment) {
+    const {
+        date,
+        start_time,
+        end_time,
+    } = appointment;
+
+    $("#startTimeDelete").text(date + " " + start_time);
+    $("#endTimeDelete").text(date + " " + end_time);
 }
 
 //gets all author info that is set on page load
-function retreiveAppointments(userID) {
+function retreiveAppointments() {
     $.ajax({
-        url: `/dashboard/fetchAppointments/${userID}`,
+        url: `/dashboard/fetchAppointments`,
         method: "get",
         contentType: "application/json",
         dataType: "json",
@@ -66,7 +152,7 @@ function retreiveAppointments(userID) {
                     appointment.id,
                     appointment.date,
                     appointment.start_time,
-                    appointment.duration,
+                    appointment.duration + " Minutes",
                     appointment.booked_by,
                 );
             });

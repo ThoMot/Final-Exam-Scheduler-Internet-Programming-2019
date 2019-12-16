@@ -77,84 +77,45 @@
 </div>
 
 
-<!--New Appointment Modal-->
+
+<!--NEW appointment Modal-->
 <div class="modal fade" id="modalNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog cascading-modal modal-avatar modal-lg" role="document">
+    <div class="modal-dialog cascading-modal modal-sm" role="document">
         <!--Content-->
         <div class="modal-content" id="modalBod">
-            <div class="modal-header">
-                <img id="authorPic"
-                     src="https://images.unsplash.com/photo-1531885528960-f02e4dbf1562?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                     alt="avatar" class="rounded-circle img-responsive img-fluid w-25 mx-auto d-block">
-            </div>
             <!--Body-->
             <div class="modal-body mb-1">
-                <h1 class="mt-1 mb-2 text-center">New Author</h1>
-                <h5 id="authID" class="mt-1 mb-2 text-center"></h5>
+                <h1 class="mt-1 mb-2 text-center">New Appointment</h1>
                 <form>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="newFirstName">First Name</label>
-                            <input type="text" class="form-control" id="newFirstName" placeholder="">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="newLastName">Last Name</label>
-                            <input type="text" class="form-control" id="newLastName" placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="newDOB">DOB</label>
-                            <input type="date" class="form-control" id="newDOB" placeholder="">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="newDOD">DOD</label>
-                            <input type="date" class="form-control" id="newDOD" placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="newProfession">Profession</label>
-                            <input type="text" class="form-control" id="newProfession" placeholder="">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="newCountry">Country</label>
-                            <input type="text" class="form-control" id="newCountry" placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="newGender">Gender</label>
-                            <select class="btn btn-secondary" id="newGender">
-                                <option selected value="default">Select gender</option>
-                                <option value="F">Female</option>
-                                <option value="M">Male</option>
-                                <option value="O">Other</option>
-                                <option value="B">Binary</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-9">
-                            <label for="newPicture">Picture</label>
-                            <input type="text" class="form-control" id="newPicture" placeholder="">
+                        <div class="form-group col-md-12">
+                            <label for="newDate">Date:</label>
+                            <input type="date" class="form-control" id="newDate"
+                                   placeholder="name not provided">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="newBio">Bio</label>
-                            <textarea rows="4" class="form-control" id="newBio" placeholder=""></textarea>
+                            <label for="newStart">Start time:</label>
+                            <input type="text" class="form-control" id="newStart">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="newEnd">End time:</label>
+                            <input type="text" class="form-control" id="newEnd">
                         </div>
                     </div>
                 </form>
                 <div class="text-center">
-                    <h5 id="createSuccess" class="text-success"></h5>
-                    <div id="createFailed">
-                        <h5 class="text-danger">Adding new author failed, please check that all fields are populated
-                        </h5>
+                    <h5 id="updateSuccess" class="text-success"></h5>
+                    <div id="failed">
+                        <h5 id="addFailed" class="text-danger">Could not add appointment</h5>
                     </div>
                 </div>
                 <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success" id="saveNewAuthor">Save</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="addAppointment" class="btn btn-success" data-dismiss="modal">Add</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
@@ -162,23 +123,26 @@
     </div>
 </div>
 
+
 <!--Delete Modal-->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-danger text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Are you sure you want to delete this author?</h4>
+                <h4 class="modal-title w-100 font-weight-bold">Are you sure you want to delete this appointment?</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body mx-3">
                 <div class="text-center">
-                    <h5>Author id:</h5>
+                    <h5>Appointment id:</h5>
                     <p id="deletedAuthorId"></p>
+                    <div><span>Start time:</span><p id="startTimeDelete"></p></div>
+                    <div><span>End time:</span><p id="endTimeDelete"></p></div>
                 </div>
                 <div class="text-center mt-4">
-                    <button type="button" class="btn btn-success" id="deleteAuthor">Confirm</button>
+                    <button type="button" class="btn btn-success" id="deleteAuthor">Yes remove it</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 </div>
                 <div class="text-center">

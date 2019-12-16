@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt');
 const saltRounds = 5;
 
 router.get("/", function(req, res) {
-    console.log(req.session.test);
     res.render("index", {
         title: "Scheduler App",
         btnName: "Dashboard",
@@ -22,6 +21,16 @@ function inputValidation(inputs) {
         }
     });
 }
+
+router.get("/logout", function(req, res) {
+    if (req.session.userName) {
+        req.session.destroy();
+    }
+    res.json({
+        successful: true,
+        message: ""
+    });
+});
 
 router.post("/signup", function(req, res) {
     const {
