@@ -166,7 +166,6 @@ function retreiveAppointments() {
 
 //populates the table of authors on page load
 function displayAppointments(id, date, startTime, duration, bookedBy) {
-    console.log(duration);
     const appointResult = `
         <tr>
         <td>${date}</td>
