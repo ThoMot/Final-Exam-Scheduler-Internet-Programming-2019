@@ -3,7 +3,6 @@ const router = express.Router();
 const createConnection = require("../db/database");
 
 router.get("/", function(req, res) {
-    console.log(req.session.test);
     if(req.session.userId) {
         res.render("dashboard", {
             title: "Scheduler App",
@@ -84,6 +83,15 @@ router.get("/fetchAppointments/:id", function(req, res, next) {
     connection.end();
 });
 
+router.get("/logout", function(req, res) {
+    if (req.session.userName) {
+        req.session.destroy();
+    }
+    res.json({
+        successful: true,
+        message: ""
+    });
+});
 
 
 module.exports = router;

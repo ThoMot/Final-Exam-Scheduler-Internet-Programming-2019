@@ -94,3 +94,21 @@ function displayAppointments(id, date, startTime, duration, bookedBy) {
     `;
     $("#tableBod").append(appointResult);
 }
+
+function logout() {
+    $.ajax({
+        url: "/dashboard/logout",
+        method: "get",
+        contentType: "application/json",
+        dataType: "json",
+        success: function(result) {
+            if (result.successful) {
+                window.location.reload();
+            }
+        },
+        error: function(xhr, status) {
+            console.log("Error logging out: ", status);
+        },
+        complete: function() {}
+    });
+}
