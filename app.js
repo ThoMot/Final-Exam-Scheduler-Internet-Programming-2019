@@ -6,8 +6,8 @@ dotenv.config();
 const app = express();
 const session = require("express-session");
 
-app.set("view engine", "hbs");
 
+app.set("view engine", "hbs");
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
@@ -17,7 +17,14 @@ app.use(express.urlencoded({ extended: false }));
 //Enable sessions
 app.use(
     session({
-        secret: "6wOBwJBStY"
+        name: "SID",
+        secret: "#$_Æ@",
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 2,
+            secure: false
+        }
     })
 );
 
@@ -25,8 +32,10 @@ hbs.registerPartials(path.join(__dirname, "/views/partials"));
 
 // Routes
 const indexRouter = require("./routes");
+const dashboardRouter = require("./routes/dashboard");
 
 app.use("/", indexRouter);
+app.use("/dashboard", dashboardRouter);
 
 // Server startup
 function normalizePort(val) {
