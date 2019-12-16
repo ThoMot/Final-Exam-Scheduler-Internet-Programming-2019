@@ -55,7 +55,6 @@ router.post("/add", function(req, res) {
 
 router.get("/appointment/:id", function(req, res) {
     const connection = createConnection();
-    req.session.test = "status fra appointment";
     const sql =
         "SELECT A.*, TIMESTAMPDIFF(MINUTE, A.start_time, A.end_time) AS duration FROM appointment as A WHERE A.id = ?";
 
