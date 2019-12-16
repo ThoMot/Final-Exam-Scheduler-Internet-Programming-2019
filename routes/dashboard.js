@@ -118,7 +118,7 @@ router.delete("/delete", function(req, res) {
 router.get("/fetchAppointments/", function(req, res, next) {
     const connection = createConnection();
     const sql =
-        "SELECT A.*, TIMESTAMPDIFF(MINUTE, A.start_time, A.end_time) AS duration FROM appointment as A WHERE A.owned_by = ? AND start_time >= date(curdate() - INTERVAL 8 HOUR) ORDER BY duration";
+        "SELECT A.*, TIMESTAMPDIFF(MINUTE, A.start_time, A.end_time) AS duration FROM appointment as A WHERE A.owned_by = ? AND start_time >= date(curdate() - INTERVAL 8 HOUR) ORDER BY A.start_time";
     const owned_by = [req.session.userId];
 
     connection.query(sql, owned_by, function(err, result, fields) {
