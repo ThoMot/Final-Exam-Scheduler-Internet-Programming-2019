@@ -2,6 +2,8 @@
 
 **This is assignment let us create a scheduler web app. The project is set up with a MySQL database and can be viewed at http://scheduler-final.herokuapp.com/. Please allow time for the server to respond first time loading the page. The project received a score of 100 and the grading rubric can be seen on the front page.**
 
+**A ERD diagram and a screenshot of the database can be seen at the bottom of this document**
+
 
 <h2>Assignment description:</h2>
 
@@ -9,21 +11,21 @@ Scheduler is a tool that allows a user to set up a schedule of available time sl
 
 - The data should be stored in MySQL and all activity with the server should be using AJAX calls to API endpoints that interact with MySQL
 
-<h3>**Dashboard**</h3>
+<h3>Dashboard</h3>
 The app needs to give the user the ability to see the appointment time slots they have made available in the future. This should be done in a list on the Dashboard:
 
 <img src="https://simple.showdeo.com/csumb/scd/classes/336/exams/final/scheduler/assets/dashboard.png">
 
 - If a date is in the past, do not show it in the Dashboard. You should have data that you manually enter into your data set that is in the past to demonstrate that you are omitting past dates.
 
-<h3>**Add Time Slot**</h3>
+<h3>Add Time Slot</h3>
 If the user wants to add more available time slots, they should be able to do so by opening a modal that accepts the information about the appointment they want available. (Yes, this would be tedious in a real-life app...see the Black Diamonds for a slightly better way to allow a user to enter available time slots.)
 
 <img src="https://simple.showdeo.com/csumb/scd/classes/336/exams/final/scheduler/assets/add-time-slot-modal.png">
 
 - Once the Add button is clicked, the time slot should be added to the data set, then the data set should be saved to the server using an AJAX POST. When the POST is successful, the Dashboard should be refreshed.
 
-<h3>**Remove Time Slot**</h3>
+<h3>Remove Time Slot</h3>
 When the user clicks on Delete on an available time in the Dashboard, the user should be prompted with a confirmation modal:
 
 <img src="https://simple.showdeo.com/csumb/scd/classes/336/exams/final/scheduler/assets/remove-slot-modal.png">
