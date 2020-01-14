@@ -14,6 +14,13 @@ router.get("/", function(req, res) {
     });
 });
 
+router.get("/rubric", function(req, res) {
+    res.render("rubric", {
+        title: "Scheduler App"
+    });
+});
+
+
 function inputValidation(inputs) {
     return inputs.map(function(field, index) {
         if (!field) {
