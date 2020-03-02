@@ -4,6 +4,8 @@
 
 **A ERD diagram and a screenshot of the database can be seen at the bottom of this document**
 
+- Unfortunately the database has been taken down, so signup and sign-in no longer works for this application.
+
 
 <h2>Assignment description:</h2>
 
