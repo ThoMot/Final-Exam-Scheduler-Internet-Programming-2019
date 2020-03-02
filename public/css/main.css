@@ -10,6 +10,7 @@ body {
 
 .content {
     flex-grow: 1;
+    background-color: #F0F8FF;
 }
 
 .navbar {
@@ -18,8 +19,4 @@ body {
 
 .darkBackground{
     background-color: #5F9EA0;
-}
-
-.content {
- background-color: #F0F8FF;   
 }
