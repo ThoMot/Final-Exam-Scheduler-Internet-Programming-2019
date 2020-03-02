@@ -1,6 +1,6 @@
 <h1>This is the Final Exam in <span style="color: red;">CST336</span>, by <span style="color: green;">Thora Mothes</span></h1>
 
-**This is assignment let us create a scheduler web app. The project is set up with a MySQL database and can be viewed at http://scheduler-final.herokuapp.com/. Please allow time for the server to respond first time loading the page. The project received a score of 100 and the grading rubric can be seen on the front page.**
+**This is assignment let us create a scheduler web app. The project is set up with a MySQL database and can be viewed at https://cst336scheduler.herokuapp.com/. Please allow time for the server to respond first time loading the page. The project received a score of 100 and the grading rubric can be seen on the front page.**
 
 **A ERD diagram and a screenshot of the database can be seen at the bottom of this document**
 
