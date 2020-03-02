@@ -5,6 +5,7 @@
 **A ERD diagram and a screenshot of the database can be seen at the bottom of this document**
 
 - Unfortunately the database has been taken down, so signup and sign-in no longer works for this application.
+- I have removed the redirect when trying to access the dashboard without logging in, so it can be accessed by adding /dashboard
 
 
 <h2>Assignment description:</h2>
