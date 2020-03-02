@@ -6,7 +6,6 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    background-color: #F0F8FF;
 }
 
 .content {
@@ -14,9 +13,13 @@ body {
 }
 
 .navbar {
-    background-color: #696969;
+    background-color: #778899;
 }
 
 .darkBackground{
     background-color: #5F9EA0;
+}
+
+.content {
+ background-color: #F0F8FF;   
 }
