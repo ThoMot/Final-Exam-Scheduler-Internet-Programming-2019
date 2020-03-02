@@ -4,7 +4,7 @@ const createConnection = require("../db/database");
 const mysql = require("mysql2");
 
 router.get("/", function(req, res) {
-    if(req.session.userId) {
+    if(!req.session.userId) {
         res.render("dashboard", {
             title: "Scheduler App",
             link: "window.location.href='/'",
