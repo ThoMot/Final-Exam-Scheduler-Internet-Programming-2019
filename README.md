@@ -25,6 +25,7 @@ The app needs to give the user the ability to see the appointment time slots the
 If the user wants to add more available time slots, they should be able to do so by opening a modal that accepts the information about the appointment they want available. (Yes, this would be tedious in a real-life app...see the Black Diamonds for a slightly better way to allow a user to enter available time slots.)
 
 <img src="https://simple.showdeo.com/csumb/scd/classes/336/exams/final/scheduler/assets/add-time-slot-modal.png">
+<img src="/images/AddApt.png">
 
 - Once the Add button is clicked, the time slot should be added to the data set, then the data set should be saved to the server using an AJAX POST. When the POST is successful, the Dashboard should be refreshed.
 
