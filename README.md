@@ -18,14 +18,14 @@ Scheduler is a tool that allows a user to set up a schedule of available time sl
 The app needs to give the user the ability to see the appointment time slots they have made available in the future. This should be done in a list on the Dashboard:
 
 <img src="https://simple.showdeo.com/csumb/scd/classes/336/exams/final/scheduler/assets/dashboard.png">
+<img src="/images/Dashboard.png">
 
 - If a date is in the past, do not show it in the Dashboard. You should have data that you manually enter into your data set that is in the past to demonstrate that you are omitting past dates.
 
 <h3>Add Time Slot</h3>
 If the user wants to add more available time slots, they should be able to do so by opening a modal that accepts the information about the appointment they want available. (Yes, this would be tedious in a real-life app...see the Black Diamonds for a slightly better way to allow a user to enter available time slots.)
 
-<img src="https://simple.showdeo.com/csumb/scd/classes/336/exams/final/scheduler/assets/add-time-slot-modal.png">
-<img src="/images/AddApt.png">
+<img src="https://simple.showdeo.com/csumb/scd/classes/336/exams/final/scheduler/assets/add-time-slot-modal.png"><img src="/images/AddApt.png">
 
 - Once the Add button is clicked, the time slot should be added to the data set, then the data set should be saved to the server using an AJAX POST. When the POST is successful, the Dashboard should be refreshed.
 
@@ -33,6 +33,7 @@ If the user wants to add more available time slots, they should be able to do so
 When the user clicks on Delete on an available time in the Dashboard, the user should be prompted with a confirmation modal:
 
 <img src="https://simple.showdeo.com/csumb/scd/classes/336/exams/final/scheduler/assets/remove-slot-modal.png">
+(This is no longer available as the database is down)
 
 When Yes, Remove It! is clicked, the appointment time slot should be removed from the data set, then the data set should be saved to the server using an AJAX POST. When the POST is successful, the Dashboard should be refreshed.
 
@@ -44,7 +45,11 @@ When Cancel is clicked, the modal should close and the time slot should not be r
 Create a login facility for the user using BCrypt storing the login credentials in a User table.
 
 <img src="https://simple.showdeo.com/csumb/scd/classes/336/exams/final/scheduler/assets/login.png">
+<img src="/images/logIn.png">
+
 - A signup page is optional but may be easier to use to create the user account.
+
+<img src="/images/signUp">
 
 <h2>How the project will be graded:</h2>
 
