@@ -14,6 +14,8 @@ Scheduler is a tool that allows a user to set up a schedule of available time sl
 
 - The data should be stored in MySQL and all activity with the server should be using AJAX calls to API endpoints that interact with MySQL
 
+<img src="/images/landingPage.png">
+
 <h3>Dashboard</h3>
 The app needs to give the user the ability to see the appointment time slots they have made available in the future. This should be done in a list on the Dashboard:
 
@@ -49,7 +51,7 @@ Create a login facility for the user using BCrypt storing the login credentials 
 
 - A signup page is optional but may be easier to use to create the user account.
 
-<img src="/images/signUp">
+<img src="/images/signUp.png">
 
 <h2>How the project will be graded:</h2>
 
